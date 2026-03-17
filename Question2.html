@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Question 2- Payment Form</title>
+    <style>
+
+        .hidden { display: none;}
+        .disabled-field { background-color: #e9e9e9; cursor: not-allowed; }
+</style>
+
+</head>
+<body>
+
+    <form id="paymentForm"> 
+        <fieldset>
+            <legend>Billing Information</legend>
+            <input type="text" id="name" placeholder="NAME" required><br>
+            <input type="email" id="email" placeholder="EMAIL" required><br>
+
+            <label>Payment Method</label>
+            <input type="radio" name="method" value="paypal" checked> Paypal
+            <input type="radio" name="method" value="card" id="visa"> Visa/MasterCard<br>
+
+            <div id="cardFields">
+                <input type="text" id="cardNumber" placeholder="Card Number" class="disabled-field" disabled> 
+                <input type="text" id="expiry" placeholder="MM/YY" class="disabled-field" disabled>
+
+            </div>
+ 
+        </fireldset>
+
+        <input type="checkbox" id="sameAsBilling" checked> Same as biling  
+
+        <fireldset id="shippingFields" class="hidden"
+        <legend>Shipping Information</legend>
+        <input type="text" placeholder="Shipping Address">
+        </fireldset>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script src="Question2.js"></script>
+
+</body>
+</html>

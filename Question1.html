@@ -1,81 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <title>Question 1 MOdern Data Fetching</title>
-        <style>
-
-            #demo { margin-top: 20px; }
-            .total-container { font-weight: bold; color: green;}
-        </style>
+    
+        <title>Question 1 Employee Data</title>
     </head>
     <body>
         <h1>Employee Managment</h1>
-        <input type="text" id="searchBar" placeholder="Real-Time search by name...">
-        <div id="demo"></div> <p id="salaryDisplay" class="total-container"></p> <hr>
-        <button onclick="showLocalStorage()">Get Item from Storage</button>
-        <button onclick="removeStorageItem()">Remove Item from Storage</button>
-        <button onclick="clearAllStorage()">Clear All Storage</button>
+        <input type="text" id="searchBar" placeholder="Search by name...">
+
+        <div id="demo"></div> 
+        <p id="totalSalaryDisplay"></p> 
+
+        <button onclick="checkStorage()">Log Storage to Console</button>
+        <button onclick="clearStorage()">Clear All Storage</button>
         
-        <script>
-
-            let employee = [];
-
-            async function loadEmployees() {
-                try {
-                    const response = await fetch('Employees.json');
-                    const data = await response.json();
-                    employee = data.employees;
-                    renderUi (employee);
-                } catch (error) {
-                    console.error("Fetch Error:", error);
-                }
-            }
-
-            function renderUi(dataList) {
-                const sortedData = [...DataList].sort((a,b) => a.age - b.age);
-                const fullNames = sotedata.map(({ firstName, lastName}) => `${firstName} ${lastName}`);
-                console.log("Full Nme Array:", fullNames);
-
-                const totalSalary = sortedData.reduce((acc, curr) => acc + curr.salary, 0);
-                document.getElementById('salaryDisplay').innerText = `Total Salary: $${totalSalary.toLocaleString()}`;
-
-                const highEarners = sortdData.filter(emp => emp.salary > 55000);
-                console.log("High Earners (> $55k):", highEarners.map(e => e.firstName));
-
-                const demoDiv = document.getElementById('demo');
-                demoDiv.innerHTML = '<ul>' + sortedData.map(emp =>
-                    '<li>${emp.firstName} ${emp.lastName} - Age: ${emp.age} ($${emp.salary})}</li>'
-                ).join('') + '</ul>';
-                    localStorage.setItem('sortedEmployees', JSON.stringify(sortedData));
-            }
-
-            document.getElementById('searchBar').addEventListener('input' , (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                const filtered = employee.filter(emp =>
-                    emp.firstName.toLowerCase().includes(searchTerm) ||
-                    emp.lastName.toLowerCase().includes(searchTerm)
-                );
-                renderUi(filtered);
-            });
-
-            function showLocalStorage() {
-                const data = localStorage.getItem('sortedEmployees');
-                alert(data ? "Data found in storage! Check console." : "Storge empty.");
-                console.log("Stored Daa:", JSON.parse(data));
-            }
-
-            function removeStorageItem() {
-                localStorage.removeItem('sortedEmployees');
-                alert("Item removed.");
-            }
-
-            function clearAllStorage() {
-                localStorage.clear();
-                alert("All storage cleared.");
-                }
-
-            loadEmployees();
-        </script>
+        <script src="Question1.js"></script>
     </body>
 </html>
