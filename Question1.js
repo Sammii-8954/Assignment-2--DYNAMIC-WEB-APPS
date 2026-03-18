@@ -1,10 +1,11 @@
  let employee = [];
 
+            
             async function fetchEmployees() {
                 try {
                     const response = await fetch('Employees.json');
                     const data = await response.json();
-                   allemployee = data.employees;
+                   let allEmployees = data.employees;
                   processEmployees(allEmployees);
                 } catch (error) {
                     console.error("Fetch Error:", error);
@@ -25,11 +26,10 @@
                 console.log("High Earners:", highEarners.map(e => e.firstName));
 
                 const demoDiv = document.getElementById('demo');
-                demoDiv.innerHTML = '<ul>' + sortedData.map(emp =>
-                    '<li>${emp.firstName} ${emp.lastName} - Age: ${emp.age} ($${emp.salary})}</li>'
+                demoDiv.innerHTML = '<ul>' + sorted.map(emp => '<li>' + emp.firstName + ' ' + emp.lastName + ' - Age: ' + emp.age + '- $' + emp.salary + '</li>'
                 ).join('') + '</ul>';
 
-                    localStorage.setItem('sortedEmployees', JSON.stringify(sorted));
+                localStorage.setItem('sortedEmployees', JSON.stringify(sorted));
             }
 
             document.getElementById('searchBar').addEventListener('input' , (e) => {
@@ -43,11 +43,19 @@
 
             function checkStorage() {
                 console.log(JSON.parse(localStorage.getItem('sortedEmployees'))); }
-                function clearStorage() { localStorage.clear(); console.log("Storage Cleared"); }
+            function clearStorage() {
+                 localStorage.clear(); console.log("Storage Cleared"); }
+            function removeItem() {
+                const inputField = document.getElementById('removeItemInput');
+                const rawData = localStorage.getItem('employees');  
+                if (rawData) {
+                    let employees = JSON.parse(rawData);
+                    const updatedEmployees = employees.filter(emp => emp.name !== inputField);                 
+                    localStorage.setItem('employees', JSON.stringify(updatedEmployees));
+                    console.log(`Removed ${inputField}. New list size: ${updatedEmployees.length}`);
+                } else {
+                    console.log("No data found in Local Storage to delete from.");
+                }
+            }
                 
             fetchEmployees();
-
-        
-            
-
-            

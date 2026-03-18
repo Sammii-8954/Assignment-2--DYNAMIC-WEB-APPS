@@ -13,29 +13,74 @@
 <body>
 
     <form id="paymentForm"> 
-        <fieldset>
-            <legend>Billing Information</legend>
+        <fieldset id="billingFields" style="text-align: center;">
+            <legend id="billingLegend">Billing Information</legend>
+
+            <label for="name">Name:</label>
             <input type="text" id="name" placeholder="NAME" required><br>
+            <label for="address">Address:</label>
+            <input type="text" id="address" placeholder="ADDRESS" required><br>
+            <label for="city">City:</label>
+            <input type="text" id="city" placeholder="CITY" required><br>
+            <label for="state">State/[Province]:</label>
+            <input type="text" id="state" placeholder="STATE/PROVINCE" required><br>
+            <label for="postalCode">Postal/Zip Code:</label>
+            <input type="text" id="postalCode" placeholder="POSTAL/ZIP CODE" required><br>
+            <label for="country">Country:</label>
+            <select id="country" Name="country">
+                <option value="">Select a Country</option>
+                <option value="US">United States</option>
+                <option value="CA">Canada</option>
+                <!-- Add more countries as needed -->
+            </select><br>
+            <label for="email">Email:</label>
             <input type="email" id="email" placeholder="EMAIL" required><br>
 
-            <label>Payment Method</label>
-            <input type="radio" name="method" value="paypal" checked> Paypal
-            <input type="radio" name="method" value="card" id="visa"> Visa/MasterCard<br>
+            <div class="payment-container">
+                <div class="row"> 
+                <label class="payment-label">PAYMENT METHOD</label>
+                <input type="radio" name="method" value="paypal" id="paypal" checked> Paypal
+                <input type="radio" name="method" value="card" id="visa"> Visa
+                <input type="radio" name="method" value="card" id="mastercard"> MasterCard <br>
+                </div>
 
-            <div id="cardFields">
-                <input type="text" id="cardNumber" placeholder="Card Number" class="disabled-field" disabled> 
-                <input type="text" id="expiry" placeholder="MM/YY" class="disabled-field" disabled>
-
+                <div class="row">
+                    <label for="cardNumber" class="payment-label">CARD NUMBER:</label>
+                    <input type="text" id="cardNumber" placeholder="Card Number" class="disabled-field" disabled> 
+                </div>
+                <div class="row">
+                    <label for="expiry" class="payment-label">Expiration Date:</label>
+                    <input type="text" id="expiry" placeholder="MM/YY" class="disabled-field" disabled>
+                </div>
             </div>
  
-        </fireldset>
+        </fieldset>
 
-        <input type="checkbox" id="sameAsBilling" checked> Same as biling  
 
-        <fireldset id="shippingFields" class="hidden"
-        <legend>Shipping Information</legend>
-        <input type="text" placeholder="Shipping Address">
-        </fireldset>
+
+        <fieldset id="shippingFields">
+
+            <legend>Shipping Information</legend>
+
+            <input type="checkbox" id="sameAsBilling" checked> Same as biling  <br>
+            <div id="shippingAddress" class="hidden">
+            <label for="address" >Address:</label>
+            <input type="text" id="address" placeholder="ADDRESS" ><br>
+            <label for="city" >City:</label>
+            <input type="text" id="city" placeholder="CITY" ><br>
+            <label for="state" >State/[Province]:</label>
+            <input type="text" id="state" placeholder="STATE/PROVINCE"  ><br>
+            <label for="postalCode" >Postal/Zip Code:</label>
+            <input type="text" id="postalCode" placeholder="POSTAL/ZIP CODE"  ><br>
+            <label for="country">Country:</label>
+            <select id="country" Name="country">
+                <option value="">Select a Country</option>
+                <option value="US">United States</option>
+                <option value="CA">Canada</option>
+                <!-- Add more countries as needed -->
+            </select><br>
+            </div>
+        </fieldset>
 
         <button type="submit">Submit</button>
     </form>
