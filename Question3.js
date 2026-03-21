@@ -1,6 +1,6 @@
  $(document).ready(function() {
                 $('#myTable').DataTable({
-                    "ajax": "MOCK_DATA.json",
+                    "ajax": "Employees.json",
                     "columns": [
                         { "data": "id" },
                         { "data": "first_name" },
