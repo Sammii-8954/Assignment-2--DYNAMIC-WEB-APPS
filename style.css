@@ -3,7 +3,7 @@
     width: 450px;
     margin: 30px auto;
     padding: 20px;
-    background: #ffffff;
+    background: #e1e2c3;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0,0,0,0.15);
     font-family: Arial, sans-serif;
@@ -11,7 +11,7 @@
 
 /* Fieldsets */
 fieldset {
-    border: 2px solid #0077cc;
+    border: 2px solid #121212;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
@@ -20,7 +20,7 @@ fieldset {
 legend {
     font-size: 18px;
     font-weight: bold;
-    color: #0077cc;
+    color: #171718;
     padding: 0 10px;
 }
 

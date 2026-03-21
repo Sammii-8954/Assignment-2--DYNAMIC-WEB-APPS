@@ -1,6 +1,10 @@
  $(document).ready(function() {
                 $('#myTable').DataTable({
-                    "ajax": "Employees.json",
+                    "ajax": {
+                       "url": "Employees.json",
+                       "dataSrc":"employees"
+                          },
+
                     "columns": [
                         { "data": "id" },
                         { "data": "first_name" },
